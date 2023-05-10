@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.1.96/css/materialdesignicons.min.css"
+    integrity="sha512-NaaXI5f4rdmlThv3ZAVS44U9yNWJaUYWzPhvlg5SC7nMRvQYV9suauRK3gVbxh7qjE33ApTPD+hkOW78VSHyeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style/main.css">
+  <link rel="stylesheet" href="assets/style/style.css">
+  <title>gregslist</title>
+</head>
+
+<body>
+  <header class="container-fluid">
+    <section class="row bg-primary align-items-center">
+      <div class="col-2">
+        <h1>gregslist</h1>
+      </div>
+      <div class="col-8 text-center">
+        <button class="btn btn-dark text-light" onclick="app.carsController.getCars()">Cars</button>
+        <button class="btn btn-dark text-light mx-5">Houses</button>
+        <button class="btn btn-dark text-light">Jobs</button>
+      </div>
+    </section>
+  </header>
+
+  <main class="container-fluid">
+
+    <section class="row">
+      <div class="col-2 pt-3">
+        <button onclick="app.carsController.getCarForm()" data-bs-toggle="modal" data-bs-target="#modal"
+          class="btn btn-info p-2"><i class="mdi mdi-train-car-flatbed-car pe-3"></i>List Car</button>
+      </div>
+    </section>
+
+    <!-- NOTE rows are typically always your 'parent container' and where you will put the id for draws -->
+    <section class="row pt-4" id="cars">
+      <!-- STUB car template -->
+      <!-- <div class="col-md-4 col-12">
+        <div class="rounded elevation-5">
+          <img class="img-fluid rounded-top"
+            src="https://bringatrailer.com/wp-content/uploads/2021/09/2002_dodge_viper_1635345255dcf15fe44065556AB8777-FE18-4724-8C40-32A88E23CDA0.jpeg?fit=1657%2C1104"
+            alt="">
+          <div class="d-flex justify-content-between px-2">
+            <p>Dodge Viper</p>
+            <p>$50000</p>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </main>
+
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <!-- NOTE inside of modal content is what is actually displayed in the modal -->
+      <div class="modal-content" id="modal-guts">
+        <!-- STUB here is my 'active car' template -->
+        <!-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Dodge Viper</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body container-fluid">
+          <section class="row">
+            <div class="col-md-6">
+              <img
+                src="https://bringatrailer.com/wp-content/uploads/2021/09/2002_dodge_viper_1635345255dcf15fe44065556AB8777-FE18-4724-8C40-32A88E23CDA0.jpeg?fit=1657%2C1104"
+                alt="">
+            </div>
+            <div class="col-md-6">
+              <div class="d-flex justify-content-around">
+                <p>2002</p>
+                <p>$500000</p>
+              </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe officiis accusantium quibusdam ullam
+                reiciendis corporis delectus, voluptatem nesciunt quod. Quam ut ex sed dolorem facilis sunt neque.
+                Voluptates, eaque facere?</p>
+            </div>
+          </section>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Contact Seller</button>
+        </div> -->
+
+        <!-- STUB car form template -->
+        <!-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Dodge Viper</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form onsubmit="app.carsController.createCar()">
+          <div class="modal-body container-fluid">
+            <section class="row">
+              <div class="mb-3 col-6">
+                <label for="make" class="form-label">Car Make</label>
+                <input required minlength="3" maxlength="20" type="text" class="form-control" id="make"
+                  placeholder="Car Make">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="model" class="form-label">Car Model</label>
+                <input required minlength="3" maxlength="20" type="text" class="form-control" id="model"
+                  placeholder="Car Model">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="year" class="form-label">Car Year</label>
+                <input required min="1920" type="number" class="form-control" id="year" placeholder="Car Year">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="price" class="form-label">Car Price</label>
+                <input required min="2000" max="1000000" type="number" class="form-control" id="price"
+                  placeholder="Car Price">
+              </div>
+              <div class="mb-3 col-12">
+                <label for="description" class="form-label">Car Description</label>
+                <input required minlength="3" maxlength="50" type="text" class="form-control" id="description"
+                  placeholder="Car Description">
+              </div>
+              <div class="mb-3 col-12">
+                <label for="color" class="form-label">Car Color</label>
+                <input required type="color" class="form-control" id="color" placeholder="Car Color">
+              </div>
+              <div class="mb-3 col-12">
+                <label for="img" class="form-label">Car Image</label>
+                <input required type="text" class="form-control" id="img" placeholder="Car Image">
+              </div>
+            </section>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create Listing</button>
+          </div>
+        </form> -->
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
+    integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
+  <script src="app/App.js" type="module"></script>
+</body>
+
+</html>
