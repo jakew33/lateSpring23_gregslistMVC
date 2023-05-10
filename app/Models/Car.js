@@ -1,3 +1,4 @@
+import { appState } from "../AppState.js"
 import { generateId } from "../Utils/generateId.js"
 
 export class Car {
@@ -11,6 +12,8 @@ export class Car {
         this.description = data.description
         this.color = data.color
         this.img = data.img
+        // NOTE adding this property to inidicate which user made this
+        this.creatorName = data.creatorName
     }
 
 
@@ -76,6 +79,7 @@ export class Car {
             <p>${this.make, this.model}</p>
             <p>$${this.price}</p>
           </div>
+          <p>Seller: ${this.creatorName}</p>
         </div>
       </div>`
     }
@@ -101,11 +105,24 @@ export class Car {
               <p>${this.description}</p>
             </div>
           </section>
+          <section class="row justify-content-end">
+          <div class="col-2">
+          <button class="btn btn-danger" onclick="app.carsController.deleteCar('${this.id}')">Delete Car</button>
+          </div>
+          </section>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Contact Seller</button>
         </div>`
     }
 
+    static CreateCarButton() {
+        return `<div class="col-2 pt-3">
+        <button ${appState.userName != '' ? '' : 'disabled'}  onclick="app.carsController.getCarForm()" data-bs-toggle="modal" data-bs-target="#modal"
+          class="btn btn-info p-2"><i class="mdi mdi-train-car-flatbed-car pe-3"></i>List
+          Car</button>
+      </div>`
+    }
 }

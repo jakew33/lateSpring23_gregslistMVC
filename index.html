@@ -26,16 +26,21 @@
         <button class="btn btn-dark text-light mx-5">Houses</button>
         <button class="btn btn-dark text-light">Jobs</button>
       </div>
+      <div class="col-2 text-end">
+        <button class="btn btn-warning" onclick="app.userController.enterUserName()">Login</button>
+      </div>
     </section>
   </header>
 
   <main class="container-fluid">
 
-    <section class="row">
-      <div class="col-2 pt-3">
+    <section class="row" id="createCarButton">
+      <!-- STUB car btn -->
+      <!-- <div class="col-2 pt-3">
         <button onclick="app.carsController.getCarForm()" data-bs-toggle="modal" data-bs-target="#modal"
-          class="btn btn-info p-2"><i class="mdi mdi-train-car-flatbed-car pe-3"></i>List Car</button>
-      </div>
+          class="btn btn-info p-2"><i class="mdi mdi-train-car-flatbed-car pe-3"></i>List
+          Car</button>
+      </div> -->
     </section>
 
     <!-- NOTE rows are typically always your 'parent container' and where you will put the id for draws -->
