@@ -3,6 +3,7 @@ import { Value } from "./Models/Value.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 import { loadState } from "./Utils/Store.js"
+import { House } from "./Models/House.js"
 
 class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
@@ -21,6 +22,17 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Car').Car|null} */
   activeCar = null
 
+  //   houses = [
+  //   new House('1974', 'Mid-Century Modern Single Family Home', 3, 2.5, 1400, 375000, 'Newly renovated mid-century modern home', 'https://rew-feed-images.global.ssl.fastly.net/imls/_cloud_media/property/residentialincome/98862307-1-835976ecc96808a93ea194115ae6c537-m.jpg')
+  // ]
+
+  /** @type {import('./Models/House').House[]} */
+  houses = loadState('houses', [House])
+
+  /** @type {import('./Models/House').House|null} */
+  activeHouse = null
+
+  
   userName = ''
 
 }
